@@ -103,6 +103,10 @@ app.post('/api/feedback', async (req, res) => {
   }
 });
 
+app.get('/api/ping', (req, res) => {
+  res.json({ success: true, message: 'pong' });
+});
+
 app.get('/api/feedback/all', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM feedback ORDER BY created_at DESC');
